@@ -1,0 +1,25 @@
+.right {
+	text-align: right;
+	font-family: Calibri, Arial, Helvetica, sans-serif;
+}
+
+#center {
+	text-align: center;
+}
+
+.italics {
+	font-style: italic;
+}
+
+.normal {
+	text-align: left;
+	font-weight: bold;
+	font-family: Calibri, Arial, Helvetica, sans-serif;
+}
+
+.unormal {
+	font-family: Calibri, Arial, Helvetica, sans-serif;
+}
+.center1 {	
+	text-align: center;
+}
