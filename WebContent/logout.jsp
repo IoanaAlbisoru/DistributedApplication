@@ -18,14 +18,14 @@
       <tr>
         <td width="713" class="right">
         	<a href="main.jsp"> Home </a> | 
-        <% if(session.getAttribute("uname")==null) {
+        <% if(session.getAttribute("name")==null) {
 			%>
             <a href="login.jsp">Login |</a> 
             <a href="register.jsp">Sign in |</a>
             <%} 
             else {
 			%>
-            <a href="logout.jsp">Logout |</a>
+            <a href="logout.jsp">Logout|</a>
             <%}%>
             <a href="basket.jsp">Basket</a>
         </td>
@@ -38,29 +38,28 @@
    </td>
   </tr>
 </table>
-
-<hr />
-   <% 
-    if(session.getAttribute("uname")!=null) {
-		session.invalidate();
-		out.println("Successfully Logged out.");
-   %>
-	
-    <script type="text/javascript">
-		function Redirect(){
-   			 window.location="main.jsp";
-        }
+<center>
+	<h5>
+		<% 
+  			  if(session.getAttribute("name")!=null) {
+					session.invalidate();
+					out.println("Successfully Logged out.");
+ 	    %>
+	</h5><br><script type="text/javascript">
+					function Redirect(){
+   						 window.location="main.jsp";
+        			}
 		
-		document.write("You will be redirected to main page in a few sec.");
-		setTimeout('Redirect()', 5000);
-	</script>
-	<%
-	}
-	else
-	{%>
-		You're already Logged out. 
-		Click <a href="main.jsp">here</a> to go to the home page.
-	<%}%>
-	
+					document.write("You will be redirected to main page in a few sec.");
+					setTimeout('Redirect()', 5000);
+			</script>
+		<%
+			  }
+			  else{
+		%>
+					You're already Logged out. 
+		<br><a href="login.jsp">Login</a>
+		<%}%>
+		</center>
 	</body>
 </html>
