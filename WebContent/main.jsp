@@ -10,7 +10,31 @@
 </head>
 
 <body>
+
 <%@ page language="java" %>
+
+<%
+		Cookie[] cks = request.getCookies();
+		if (cks != null) {
+			for (int i = 0; i < cks.length; i++) {
+				String name = cks[i].getName();
+				String value = cks[i].getValue();
+				if (name.equals("auth")) {
+					break; // exit the loop and continue the page
+				}
+				if (i == (cks.length - 1)) // if all cookie are not valid redirect to error page
+				{
+					response.sendRedirect("session_expired.jsp");
+					return; // to stop further execution
+				}
+				i++;
+			}
+		} else {
+			response.sendRedirect("session_expired.jsp");
+			return; // to stop further execution
+		}
+%>
+
 <table width="993" height="330" border="0">
   <tr>
     <td width="205" height="170"><img src="images/head.jpg" width="251" height="170" alt="Logo" />
@@ -19,10 +43,11 @@
       <tr>
         <td width="713" class="right">
         	<a href="main.jsp"> Home </a> | 
-        <% if(session.getAttribute("uname")==null) {
+        	<% 
+        	if(session.getAttribute("name")==null) {
 			%>
             <a href="login.jsp">Login |</a> 
-            <a href="register.jsp">Sign in |</a>
+            <a href="register.jsp">Register |</a>
             <%} 
             else {
 			%>
@@ -73,7 +98,7 @@
           </tr>
           <tr>
             <td><!--   <form action="category.jsp">-->
-            <input type="hidden" name="type" value="prod_type" /><input type="hidden" name="category" value="Toys&Baby" /><input type="image" src="images/toys.PNG" /></form></td>
+            <input type="hidden" name="type" value="prod_type" /><input type="hidden" name="category" value="ToysBaby" /><input type="image" src="images/toys.PNG" /></form></td>
           </tr>
         </table></td>
       </tr>
