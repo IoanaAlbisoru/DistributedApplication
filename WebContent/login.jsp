@@ -11,7 +11,7 @@
 <body>
 
 <center>
-<form action="loginconf.jsp" method="post">
+<form action="Login" method="post">
   <table width="993" height="330" border="0">
   <tr>
     <td width="205" height="170"><img src="images/head.jpg" width="251" height="170" alt="Logo" />
@@ -20,10 +20,11 @@
       <tr>
         <td width="713" class="right">
         	<a href="main.jsp"> Home </a> | 
-        <% if(session.getAttribute("uname")==null) {
+        	<% 
+        	if(session.getAttribute("name")==null) {
 			%>
             <a href="login.jsp">Login |</a> 
-            <a href="register.jsp">Sign in |</a>
+            <a href="register.jsp">Register |</a>
             <%} 
             else {
 			%>
@@ -47,11 +48,11 @@
 </tr> 
 <tr> 
 <td> Username: </td> 
-<td> <input type="text" name="id"> </td> 
+<td> <input type="text" name="user" required="required"> </td> 
 </tr> 
 <tr> 
 <td> Password: </td> 
-<td> <input type="password" name="password"> </td> 
+<td> <input type="password" name="password" required="required"> </td> 
 </tr> 
 <tr> 
 <td><br/><br/> <input type="submit" value="Log In"> </td> 
