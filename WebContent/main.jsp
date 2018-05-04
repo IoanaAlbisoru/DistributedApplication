@@ -48,19 +48,21 @@
 			%>
             <a href="login.jsp">Login |</a> 
             <a href="register.jsp">Register |</a>
+            <a href="notloggedin.jsp">Shopping cart</a>
             <%} 
             else {
 			%>
             <a href="logout.jsp">Logout |</a>
+            <a href="shopping_cart.jsp">Shopping cart</a>
             <%}%>
-            <a href="basket.jsp">Basket</a>
+            
         </td>
       </tr>
       <tr>
-        <td><form id="center" name="form1" method="post" action="search.jsp">
-          <input name="search" type="text" id="search" size="60" />
+        <td><form id="center" name="frm" method="post" action="Search">
+          <input name="pid" type="text" id="pid" size="60" />
           <label>
-            <input type="submit" name="submit" id="button" value="Search" />
+            <input type="submit" name="submit" id="button_sea" value="Search" />
           </label>
         </form></td>
       </tr>
@@ -72,56 +74,38 @@
       <tr>
         <td height="184"><table width="242" height="171" border="0">
           <tr>
-            <td class="normal">PRODUCTS 
-            	<a href="seeall.jsp">see all</a> <br/>
-            </td>
+            <form name="see" action="SeeAll" method="post">
+            	<td class="normal">PRODUCTS <input type="submit" name="seeall" id="button_sea" value="see all"/>	
+            	 </td>
+            </form> 
           </tr>
           <tr>
-            <td> <!--   <form action="category.jsp">-->
+            <td> <!--  <form action="category.jsp">-->
             <input type="hidden" name="type" value="prod_type" /><input type="hidden" name="category" value="BooksAudible" /><input type="image" src="images/books.PNG" /></form></td>
           </tr>
           <tr>
-            <td><!--   <form action="category.jsp">-->
+            <td><!--  <form action="category.jsp">-->
             <input type="hidden" name="type" value="prod_type" /><input type="hidden" name="category" value="ElectronicsComp" /><input type="image" src="images/elect.PNG" /></form></td>
           </tr>
           <tr>
-            <td><!--   <form action="category.jsp">-->
+            <td><!--  <form action="category.jsp">-->
             <input type="hidden" name="type" value="prod_type" /><input type="hidden" name="category" value="Clothes" /><input type="image" src="images/cloth.PNG" /></form></td>
           </tr>
           <tr>
-            <td><!--   <form action="category.jsp">-->
+            <td><!--  <form action="category.jsp">-->
             <input type="hidden" name="type" value="prod_type" /><input type="hidden" name="category" value="HomeGarden" /><input type="image" src="images/gard.PNG" /></form></td>
           </tr>
           <tr>
-            <td><!--   <form action="category.jsp">-->
+            <td><!--  <form action="category.jsp">-->
             <input type="hidden" name="type" value="prod_type" /><input type="hidden" name="category" value="HealthBeauty" /><input type="image" src="images/health.PNG" /></form></td>
           </tr>
           <tr>
-            <td><!--   <form action="category.jsp">-->
+            <td><!--  <form action="category.jsp">-->
             <input type="hidden" name="type" value="prod_type" /><input type="hidden" name="category" value="ToysBaby" /><input type="image" src="images/toys.PNG" /></form></td>
           </tr>
-        </table></td>
-      </tr>
-       <tr>
-        <td height="201"><table width="243" height="180" border="0">
-          <tr>
-            <td width="233" class="normal">&nbsp;</td>
-          </tr>
-          <tr>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td>&nbsp;</td>
-          </tr>
+          <tr> 
+      		<td height="800">&nbsp;</td>
+      	 </tr>
         </table></td>
       </tr>
       
@@ -195,3 +179,4 @@
 
 </body>
 </html>
+
