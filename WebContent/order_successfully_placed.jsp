@@ -2,7 +2,7 @@
 
 <head>
 
-<title>Registration succes</title>
+<title>Searching results</title>
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<title>Log in</title>
@@ -112,11 +112,8 @@
     </table></td>
     <td>
     	<center><table  border="1" >
-    		
-    		<p id="center">You have successfully registered !
-		 <p><a href="login.jsp">Sign in</a></p> 
-  	</p>
-    		          
+    		<strong>The order was successfully placed!</strong>
+  			</p>            
            </table> </center>
             <br/>
     </table></td>

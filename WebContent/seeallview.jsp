@@ -2,7 +2,7 @@
 
 <head>
 
-<title>Searching results</title>
+<title>Products</title>
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/styles.css" />
 
@@ -15,9 +15,9 @@
 
 <table width="993" height="330" border="2">
   <tr>
-    <td width="205" height="170"><img src="images/head.jpg" width="251" height="170" alt="Logo" />
+    <td width="205" height="170"><a href="main.jsp"><img src="images/head.jpg" width="251" height="170" alt="Logo" /></a>
     <hr /></td>
-    <td width="772"><table width="930" height="170" border="2">
+    <td width="772"><table width="990" height="170" border="2">
       <tr>
         <td width="900" class="right">
         	<a href="main.jsp"> Home </a> | 
@@ -60,27 +60,27 @@
           </tr>
           <tr>
             <td> <!--  <form action="category.jsp">-->
-            <input type="hidden" name="type" value="prod_type" /><input type="hidden" name="category" value="BooksAudible" /><input type="image" src="images/books.PNG" /></form></td>
+            <input type="hidden" name="category" value="BooksAudible" /><input type="image" src="images/books.PNG" /></form></td>
           </tr>
           <tr>
             <td><!--  <form action="category.jsp">-->
-            <input type="hidden" name="type" value="prod_type" /><input type="hidden" name="category" value="ElectronicsComp" /><input type="image" src="images/elect.PNG" /></form></td>
+            <input type="hidden" name="category" value="ElectronicsComp" /><input type="image" src="images/elect.PNG" /></form></td>
           </tr>
           <tr>
             <td><!--  <form action="category.jsp">-->
-            <input type="hidden" name="type" value="prod_type" /><input type="hidden" name="category" value="Clothes" /><input type="image" src="images/cloth.PNG" /></form></td>
+            <input type="hidden" name="category" value="Clothes" /><input type="image" src="images/cloth.PNG" /></form></td>
           </tr>
           <tr>
             <td><!--  <form action="category.jsp">-->
-            <input type="hidden" name="type" value="prod_type" /><input type="hidden" name="category" value="HomeGarden" /><input type="image" src="images/gard.PNG" /></form></td>
+            <input type="hidden" name="category" value="HomeGarden" /><input type="image" src="images/gard.PNG" /></form></td>
           </tr>
           <tr>
             <td><!--  <form action="category.jsp">-->
-            <input type="hidden" name="type" value="prod_type" /><input type="hidden" name="category" value="HealthBeauty" /><input type="image" src="images/health.PNG" /></form></td>
+            <input type="hidden" name="category" value="HealthBeauty" /><input type="image" src="images/health.PNG" /></form></td>
           </tr>
           <tr>
             <td><!--  <form action="category.jsp">-->
-            <input type="hidden" name="type" value="prod_type" /><input type="hidden" name="category" value="ToysBaby" /><input type="image" src="images/toys.PNG" /></form></td>
+            <input type="hidden" name="category" value="ToysBaby" /><input type="image" src="images/toys.PNG" /></form></td>
           </tr>
         </table></td>
       </tr> 
@@ -121,26 +121,26 @@
 				</td>
 			</tr>
 			<tr>
-				<td width="500" height="40" class="title"> 
+				<td width="500" height="10" class="title"> 
 					<input type="hidden" name="title" value="<%=pList.get(2)%>">
 					<p><%=pList.get(2)%> </p>
 				</td>
 			</tr>
 			<tr>
-				<td > 
+				<td height="50"> 
 					<input type="hidden" name="description" value="<%=pList.get(3)%>">
 					<p><%=pList.get(3)%> </p>
 				</td>
 			</tr>
 			<tr>
-				<td height="30" class="price"> 
-					<input type="hidden" name="price" value="<%=pList.get(4)%>">
-					<p><%=pList.get(4)%> </p>
+				<td height="10" class="price"> 
+					Quantity: <input width="10" type="text" name="quantity" value="1">
 				</td>
 			</tr>
 			<tr>
-				<td height="30" class="price"> 
-					Quantity: <input type="text" size="2" value="1" name="quantity">
+				<td height="10" class="price"> 
+					<input type="hidden" name="price" value="<%=pList.get(4)%>">
+					<p><%=pList.get(4)%>$</p>
 				</td>
 			</tr>
 			<tr>
@@ -176,26 +176,26 @@
 				</td>
 			</tr>
 			<tr>
-				<td width="500" height="40" class="title"> 
+				<td width="500" height="10" class="title"> 
 					<input type="hidden" name="title" value="<%=pList.get(2)%>">
 					<p><%=pList.get(2)%> </p>
 				</td>
 			</tr>
 			<tr>
-				<td > 
+				<td height="50"> 
 					<input type="hidden" name="description" value="<%=pList.get(3)%>">
 					<p><%=pList.get(3)%> </p>
 				</td>
 			</tr>
 			<tr>
-				<td height="30" class="price"> 
-					<input type="hidden" name="price" value="<%=pList.get(4)%>">
-					<p><%=pList.get(4)%> </p>
+				<td height="10" class="price"> 
+					Quantity: <input width="10" type="text" name="quantity" value="1">
 				</td>
 			</tr>
 			<tr>
-				<td height="30" class="price"> 
-					Quantity: <input type="text" size="2" value="1" name="quantity">
+				<td height="10" class="price"> 
+					<input type="hidden" name="price" value="<%=pList.get(4)%>">
+					<p><%=pList.get(4)%>$</p>
 				</td>
 			</tr>
 			<tr>

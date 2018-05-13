@@ -2,7 +2,7 @@
 
 <head>
 
-<title>Distributed Application</title>
+<title>Home</title>
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/styles.css" />
 
@@ -11,7 +11,7 @@
 
 <body>
 
-<%@ page language="java" %>
+<%@ page language="java" import="java.util.*"%>
 
 <%
 		Cookie[] cks = request.getCookies();
@@ -35,13 +35,13 @@
 		}
 %>
 
-<table width="993" height="330" border="0">
+<table width="993" height="330" border="2">
   <tr>
-    <td width="205" height="170"><img src="images/head.jpg" width="251" height="170" alt="Logo" />
-    <hr /></td>
-    <td width="772"><table width="723" height="170" border="0">
+    <td width="205" height="170"><a href="main.jsp"><img src="images/head.jpg" width="251" height="170" alt="Logo" /></a></td>
+    <hr />
+    <td width="772"><table width="990" height="170" border="2">
       <tr>
-        <td width="713" class="right">
+        <td width="900" class="right">
         	<a href="main.jsp"> Home </a> | 
         	<% 
         	if(session.getAttribute("name")==null) {
@@ -70,14 +70,15 @@
     <hr /></td>
   </tr>
   <tr>
-    <td><table width="251" height="482" border="0">
+    <td><table border="10">
       <tr>
-        <td height="184"><table width="242" height="171" border="0">
+        <td height="184"><table border="2">
           <tr>
-            <form name="see" action="SeeAll" method="post">
+          	<form name="see" action="SeeAll" method="post">
             	<td class="normal">PRODUCTS <input type="submit" name="seeall" id="button_sea" value="see all"/>	
             	 </td>
             </form> 
+           
           </tr>
           <tr>
             <td> <!--  <form action="category.jsp">-->
@@ -103,74 +104,12 @@
             <td><!--  <form action="category.jsp">-->
             <input type="hidden" name="type" value="prod_type" /><input type="hidden" name="category" value="ToysBaby" /><input type="image" src="images/toys.PNG" /></form></td>
           </tr>
-          <tr> 
-      		<td height="800">&nbsp;</td>
-      	 </tr>
         </table></td>
-      </tr>
-      
+      </tr> 
+           
     </table></td>
-    <td><table width="725" height="684" border="0">
-      <tr class="normal">
-        <td height="30">BEST-SELLINGS</td>
-      </tr>
-      <tr>
-        <td height="261"><table width="714" height="258" border="0">
-          <tr>
-            <td width="228"><table width="120" height="173" border="0" align="center">
-              <tr>
-                <td><form action="product.jsp"> 
-<input type="hidden" name="product" value="S001"> 
-<input name="buy" type="image" src="images/img1.jpg" width="114" height="165"> 
-</form></td>
-              </tr>
-            </table>
-              <p class="center1">Produs1</p>
-              <p class="center1">Pret produs1</p>
-            </td>
-            <td width="240" class="center1"><table width="117" height="173" border="0" align="center">
-              <tr>
-                <td width="111"><form action="product.jsp"> 
-<input type="hidden" name="product" value="S002">
-<input name="buy" type="image" src="images/img2.jpg" width="100" height="165"> 
-</form></td>
-              </tr>
-            </table></p>
-              <p class="center1">Produs2</p>
-              <p class="center1">Pret produs2</p>
-            </td>
-            <td width="224"><table width="120" height="173" border="0" align="center">
-              <tr>
-                <td><form action="product.jsp"> 
-<input type="hidden" name="product" value="L001"> 
-<input name="buy" type="image" src="images/img3.jpg" width="104" height="165"> 
-</form></td>
-       </tr>
-            </table>
-              <p class="center1">Produs3</p>
-              <p class="center1">Pret produs3</p>
-            </td>
-          </tr>
-        </table></td>
-      </tr>
-      <tr class="normal">
-        <td height="31">&nbsp;</td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-      </tr>
-      <tr class="normal">
-        <td height="27">&nbsp;</td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-      </tr>
-      <tr class="normal">
-        <td height="27">&nbsp;</td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-      </tr>
+    <td> 
+            <br/>
     </table></td>
   </tr> 
 </table>
@@ -179,4 +118,3 @@
 
 </body>
 </html>
-

@@ -2,7 +2,7 @@
 
 <head>
 
-<title>Registration succes</title>
+<title>Edit Delivery Information</title>
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<title>Log in</title>
@@ -14,28 +14,6 @@
 <body>
 
 <%@ page language="java" import="java.util.*"%>
-
-<%
-		Cookie[] cks = request.getCookies();
-		if (cks != null) {
-			for (int i = 0; i < cks.length; i++) {
-				String name = cks[i].getName();
-				String value = cks[i].getValue();
-				if (name.equals("auth")) {
-					break; // exit the loop and continue the page
-				}
-				if (i == (cks.length - 1)) // if all cookie are not valid redirect to error page
-				{
-					response.sendRedirect("session_expired.jsp");
-					return; // to stop further execution
-				}
-				i++;
-			}
-		} else {
-			response.sendRedirect("session_expired.jsp");
-			return; // to stop further execution
-		}
-	%>
 
 <table width="993" height="330" border="2">
   <tr>
@@ -113,10 +91,40 @@
     <td>
     	<center><table  border="1" >
     		
-    		<p id="center">You have successfully registered !
-		 <p><a href="login.jsp">Sign in</a></p> 
-  	</p>
-    		          
+  <table border="1"> <form action="EditPersonalInfo" method="post">
+  <tr> 
+	<td colspan="2" class="italics"> Delivery information</td> 
+	</tr> 
+							<%
+							
+                if (session.getAttribute("list") != null) {
+                    ArrayList<String> list = (ArrayList<String>)session.getAttribute("list");
+                    System.out.println(list);
+                    /*Iterator itr = al.iterator();
+                    while (itr.hasNext()) {
+                        count++;
+                        ArrayList pList = (ArrayList) itr.next();
+                        System.out.println(count);
+                        if(count % 2 != 0){*/
+            %>
+            
+		    <tr><td>First name: </td><td><input type="text" name="firstname" value="<%=list.get(2) %>"></td></tr>
+		    <tr><td>Last name: </td><td><input type="text" name="lastname" value="<%=list.get(3) %>"></td></tr>
+		    <tr><td>E-mail: </td><td><input type="email" name="email" value="<%=list.get(4) %>"></td></tr>	
+            <tr><td>Phone: </td><td><input type="text" name="phone" value="<%=list.get(6) %>"></td></tr>
+            <tr><td>Address:</td><td><input type="text" name="address" value="<%=list.get(7) %>"></textarea></td></tr>
+            <tr><td>Country: </td><td><input type="text" name="country" value="<%=list.get(8) %>"></td></tr>
+            <tr><td>Zipcode: </td><td><input type="text" name="zipcode" value="<%=list.get(9) %>"></td></tr>
+		<%} 
+			else{
+				System.out.println("Erpare!");
+			}
+	%>
+<tr> 
+<td><br/><br/> <input type="submit" value="Done"> </td> 
+</tr> </form>
+</table>
+             
            </table> </center>
             <br/>
     </table></td>

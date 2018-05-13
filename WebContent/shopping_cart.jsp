@@ -16,9 +16,9 @@
 
 <table width="993" height="330" border="2">
   <tr>
-    <td width="205" height="170"><img src="images/head.jpg" width="251" height="170" alt="Logo" />
+    <td width="205" height="170"><a href="main.jsp"><img src="images/head.jpg" width="251" height="170" alt="Logo" /></a>
     <hr /></td>
-    <td width="772"><table width="930" height="170" border="2">
+    <td width="772"><table width="990" height="170" border="2">
       <tr>
         <td width="900" class="right">
         	<a href="main.jsp"> Home </a> | 
@@ -91,6 +91,7 @@
     </table></td>
     <td> 
     <table width="75%" border="1">
+   
     <tr size="3" face="Verdana">Shopping cart</tr>
   <tr bgcolor="#CCCCCC">
     <td><strong><font size="2" face="Verdana, Arial, Helvetica, sans-serif">Model
@@ -100,7 +101,7 @@
       Price</font></strong></td>
     <td><strong><font size="2" face="Verdana, Arial, Helvetica, sans-serif">Total</font></strong></td>
   </tr>
-  <jsp:useBean id="cart" scope="session" class="app.CartBean" />
+  <jsp:useBean id="cart" scope="session" class="servlets.CartBean" />
   <c:if test="${cart.lineItemCount==0}">
   <tr>
   <td colspan="4"><font size="2" face="Verdana, Arial, Helvetica, sans-serif">- Cart is currently empty -<br/>
@@ -123,6 +124,12 @@
     <td> </td>
     <td><font size="2" face="Verdana, Arial, Helvetica, sans-serif">Subtotal: $<c:out value="${cart.orderTotal}"/></font></td>
   </tr>
+  
+  <form method="post" action="VisualizeCustomerInfo">
+  <tr>  
+  		<td><input type="submit"  name="order_button" value="Order"></td>
+  </tr>
+  </form>
 </table>
             <br/>
     </table>
@@ -134,8 +141,3 @@
 
 </body>
 </html>
-
-
-
-
-

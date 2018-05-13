@@ -2,7 +2,7 @@
 
 <head>
 
-<title>Registration succes</title>
+<title>Searching results</title>
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<title>Log in</title>
@@ -14,28 +14,6 @@
 <body>
 
 <%@ page language="java" import="java.util.*"%>
-
-<%
-		Cookie[] cks = request.getCookies();
-		if (cks != null) {
-			for (int i = 0; i < cks.length; i++) {
-				String name = cks[i].getName();
-				String value = cks[i].getValue();
-				if (name.equals("auth")) {
-					break; // exit the loop and continue the page
-				}
-				if (i == (cks.length - 1)) // if all cookie are not valid redirect to error page
-				{
-					response.sendRedirect("session_expired.jsp");
-					return; // to stop further execution
-				}
-				i++;
-			}
-		} else {
-			response.sendRedirect("session_expired.jsp");
-			return; // to stop further execution
-		}
-	%>
 
 <table width="993" height="330" border="2">
   <tr>
@@ -112,11 +90,27 @@
     </table></td>
     <td>
     	<center><table  border="1" >
-    		
-    		<p id="center">You have successfully registered !
-		 <p><a href="login.jsp">Sign in</a></p> 
-  	</p>
-    		          
+    		<p><strong>To order a product or to visualize the content of the shopping cart
+  			     <br/> you should be loggedin first !</strong><br/></p>
+  			<table width="1" > 
+  			<form method="post" action="Login">
+  			<tr> 
+ 				<td colspan="2" class="italics"> Log in </td> 
+			</tr> 
+			<tr> 
+				<td> Username: </td> 
+			<td> <input type="text" name="user" required="required"> </td> 
+			</tr> 
+			<tr> 
+			<td> Password: </td> 
+			<td> <input type="password" name="password" required="required"> </td> 
+			</tr> 
+			<tr> 
+			<td><br/><br/> <input type="submit" value="Log In"> </td> 
+			<td><br/><br/><input type="reset" value="Clear"> </td> 
+			</tr> 
+			</form>
+			</table>
            </table> </center>
             <br/>
     </table></td>

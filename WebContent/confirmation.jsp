@@ -2,7 +2,7 @@
 
 <head>
 
-<title>Searching results</title>
+<title>Visualize Delivery Information</title>
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<title>Log in</title>
@@ -14,6 +14,7 @@
 <body>
 
 <%@ page language="java" import="java.util.*"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <table width="993" height="330" border="2">
   <tr>
@@ -91,42 +92,74 @@
     <td>
     	<center><table  border="1" >
     		
-    		<p><strong>Already have an account ?</strong><br/><a href="login.jsp"><strong>Sign in</strong></a></p>
-  <table width="1" > <form action="Registration" method="post">
+  <table >
   <tr> 
-<td colspan="2" class="italics"> Register here</td> 
+<td colspan="2" class="italics"> Delivery information</td> 
 </tr> 
-		    <tr><td>First name: </td><td><input type="text" name="firstname" required="required"></td></tr>
-		    <tr><td>Last name: </td><td><input type="text" name="lastname" required="required"></td></tr>
-		    <tr><td>E-mail: </td><td><input type="email" name="email" required="required"></td></tr>		    
-            <tr><td>User ID: </td><td><input type="text" name="user" required="required"></td></tr>
-            <tr><td>Password: </td><td><input type="password" name="password" required="required"></td></tr>
-            <tr><td>Phone: </td><td><input type="text" name="phone" required="required"></td></tr>
-            <tr><td>Address:</td><td><textarea name="address" required="required"></textarea></td></tr>
-            <tr><td>Country: </td><td><input list="countries" name="country" required="required"><datalist id="countries">
-  											<option value="Austria">
- 											<option value="Belgium">
-  											<option value="Bulgaria">
-  											<option value="Croatia">
- 											<option value="Cyprus">
- 											<option value="Denmark">
- 											<option value="Finland">
-  											<option value="France">
-  											<option value="Germany">
- 											<option value="Greece">
- 											<option value="Hungary">
- 											<option value="Italy">
-  											<option value="Romania">
-  											<option value="Spain">
- 											<option value="Sweden">
- 											<option value="United Kingdom">
-							</datalist></td></tr>
-            <tr><td>Zipcode: </td><td><input type="text" name="zipcode"></td></tr>
-            <tr><td>Date of birth: </td><td><input type="date" placeholder="yyyy-mm-dd" name="bday"></td></tr>
+							<%
+                if (request.getAttribute("al") != null) {
+                    ArrayList al = (ArrayList)request.getAttribute("al");
+                    System.out.println(al);
+                    /*Iterator itr = al.iterator();
+                    while (itr.hasNext()) {
+                        count++;
+                        ArrayList pList = (ArrayList) itr.next();
+                        System.out.println(count);
+                        if(count % 2 != 0){*/
+            %>
+            
+		    <tr><td>First name: </td><td><input type="hidden" name="firstname" value="<%=al.get(1) %>"><%=al.get(1) %></td></tr>
+		    <tr><td>Last name: </td><td><input type="hidden" name="lastname" value="<%=al.get(2) %>"><%=al.get(2) %></td></tr>
+		    <tr><td>E-mail: </td><td><input type="hidden" name="email" value="<%=al.get(3) %>"><%=al.get(3) %></td></tr>	
+            <tr><td>Phone: </td><td><input type="hidden" name="phone" value="<%=al.get(6) %>"><%=al.get(6) %></td></tr>
+            <tr><td>Address:</td><td><input type="hidden" name="address" value="<%=al.get(7) %>"><%=al.get(7) %></td></tr>
+            <tr><td>Country: </td><td><input type="hidden" name="country" value="<%=al.get(8) %>"><%=al.get(8) %></td></tr>
+            <tr><td>Zipcode: </td><td><input type="hidden" name="zipcode" value="<%=al.get(9) %>"><%=al.get(9) %></td></tr>
+		<%} %>
+		
+<tr>
+
+<table width="75%" border="1">
+   
+    <tr size="3" face="Verdana">Shopping cart</tr>
+  <tr bgcolor="#CCCCCC">
+    <td><strong><font size="2" face="Verdana, Arial, Helvetica, sans-serif">Model
+      Description</font></strong></td>
+    <td><strong><font size="2" face="Verdana, Arial, Helvetica, sans-serif">Quantity</font></strong></td>
+    <td><strong><font size="2" face="Verdana, Arial, Helvetica, sans-serif">Unit
+      Price</font></strong></td>
+    <td><strong><font size="2" face="Verdana, Arial, Helvetica, sans-serif">Total</font></strong></td>
+  </tr>
+  <jsp:useBean id="cart" scope="session" class="servlets.CartBean" />
+  <c:if test="${cart.lineItemCount==0}">
+  <tr>
+  <td colspan="4"><font size="2" face="Verdana, Arial, Helvetica, sans-serif">- Cart is currently empty -<br/>
+  </tr>
+  </c:if>
+  <c:forEach var="cartItem" items="${cart.cartItems}" varStatus="counter">
+  <form name="item" method="POST" action="CartController">
+  <tr>
+    <td><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><b><c:out value="${cartItem.title}"/></b><br/>
+      
+    <td><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><input type='hidden' name='itemIndex' value='<c:out value="${counter.count}"/>'><input type='text' name="quantity" value='<c:out value="${cartItem.quantity}"/>' size='2'> <input type="submit" name="action" value="Update">
+ <br/>         <input type="submit" name="action" value="Delete"></font></td>
+    <td><font size="2" face="Verdana, Arial, Helvetica, sans-serif">$<c:out value="${cartItem.unitCost}"/></font></td>
+    <td><font size="2" face="Verdana, Arial, Helvetica, sans-serif">$<c:out value="${cartItem.totalCost}"/></font></td>
+  </tr>
+  </c:forEach>
+  <tr>
+    <td colspan="2"> </td>
+    <td> </td>
+    <td><font size="2" face="Verdana, Arial, Helvetica, sans-serif">Subtotal: $<c:out value="${cart.orderTotal}"/></font></td>
+  </tr>
+  </form>
+</table>
+</tr>
 <tr> 
-<td><br/><br/> <input type="submit" value="Create account"> </td> 
-<td><br/><br/> <input type="reset" value="Clear"> </td> 
-</tr> </form>
+ <form method="post" action="Order">
+<td><input type="submit" name="order" value="Place the order"> </td> 
+</tr> 
+</form>
 </table>
              
            </table> </center>
