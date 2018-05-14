@@ -14,11 +14,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" import="java.util.*"%>
 
-<table width="993" height="330" border="2">
+<table width="993" height="330" >
   <tr>
     <td width="205" height="170"><a href="main.jsp"><img src="images/head.jpg" width="251" height="170" alt="Logo" /></a>
     <hr /></td>
-    <td width="772"><table width="990" height="170" border="2">
+    <td width="772"><table width="990" height="170">
       <tr>
         <td width="900" class="right">
         	<a href="main.jsp"> Home </a> | 
@@ -50,9 +50,9 @@
     <hr /></td>
   </tr>
   <tr>
-    <td><table border="10">
+    <td><table>
       <tr>
-        <td height="184"><table border="2">
+        <td height="184"><table>
           <tr>
             <form name="see" action="SeeAll" method="post">
             	<td class="normal">PRODUCTS <input type="submit" name="seeall" id="button_sea" value="see all"/>	
@@ -85,44 +85,42 @@
           </tr>
         </table></td>
       </tr> 
-      <tr> 
-      	<td height="540">&nbsp;</td>
-      </tr>     
+        
     </table></td>
-    <td> 
-    <table width="75%" border="1">
-   
-    <tr size="3" face="Verdana">Shopping cart</tr>
+    <td> <center>
+    <table>
+   	 <tr> 
+	<td colspan="2" class="italics"> Shopping cart</td> 
+	</tr> 
+    <br/>
   <tr bgcolor="#CCCCCC">
-    <td><strong><font size="2" face="Verdana, Arial, Helvetica, sans-serif">Model
-      Description</font></strong></td>
-    <td><strong><font size="2" face="Verdana, Arial, Helvetica, sans-serif">Quantity</font></strong></td>
-    <td><strong><font size="2" face="Verdana, Arial, Helvetica, sans-serif">Unit
-      Price</font></strong></td>
-    <td><strong><font size="2" face="Verdana, Arial, Helvetica, sans-serif">Total</font></strong></td>
+    <td><strong>Model Description</strong></td>
+    <td><strong>Quantity</strong></td>
+    <td><strong>Unit Price</strong></td>
+    <td><strong>Total</strong></td>
   </tr>
   <jsp:useBean id="cart" scope="session" class="servlets.CartBean" />
   <c:if test="${cart.lineItemCount==0}">
   <tr>
-  <td colspan="4"><font size="2" face="Verdana, Arial, Helvetica, sans-serif">- Cart is currently empty -<br/>
+  <td colspan="4">- Cart is currently empty -<br/>
   </tr>
   </c:if>
   <c:forEach var="cartItem" items="${cart.cartItems}" varStatus="counter">
   <form name="item" method="POST" action="CartController">
   <tr>
-    <td><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><b><c:out value="${cartItem.title}"/></b><br/>
+    <td><b><c:out value="${cartItem.title}"/></b><br/>
       
-    <td><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><input type='hidden' name='itemIndex' value='<c:out value="${counter.count}"/>'><input type='text' name="quantity" value='<c:out value="${cartItem.quantity}"/>' size='2'> <input type="submit" name="action" value="Update">
- <br/>         <input type="submit" name="action" value="Delete"></font></td>
-    <td><font size="2" face="Verdana, Arial, Helvetica, sans-serif">$<c:out value="${cartItem.unitCost}"/></font></td>
-    <td><font size="2" face="Verdana, Arial, Helvetica, sans-serif">$<c:out value="${cartItem.totalCost}"/></font></td>
+    <td><input type='hidden' name='itemIndex' value='<c:out value="${counter.count}"/>'><input type='text' width="20" name="quantity" value='<c:out value="${cartItem.quantity}"/>'size='2'> <input type="submit" name="action" value="Update"><br/>         
+    <input type="submit" name="action" value="Delete"></td>
+    <td><c:out value="${cartItem.unitCost}"/> $</td>
+    <td><c:out value="${cartItem.totalCost}"/> $</td>
   </tr>
   </form>
   </c:forEach>
   <tr>
     <td colspan="2"> </td>
     <td> </td>
-    <td><font size="2" face="Verdana, Arial, Helvetica, sans-serif">Subtotal: $<c:out value="${cart.orderTotal}"/></font></td>
+    <td>Subtotal: <c:out value="${cart.orderTotal}"/> $</td>
   </tr>
   
   <form method="post" action="VisualizeCustomerInfo">
@@ -130,7 +128,7 @@
   		<td><input type="submit"  name="order_button" value="Order"></td>
   </tr>
   </form>
-</table>
+</table></center>
             <br/>
     </table>
     </td>

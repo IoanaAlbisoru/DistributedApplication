@@ -13,11 +13,11 @@
 
 <%@ page language="java" import="java.util.*"%>
 
-<table width="993" height="330" border="2">
+<table width="993" height="330" >
   <tr>
     <td width="205" height="170"><a href="main.jsp"><img src="images/head.jpg" width="251" height="170" alt="Logo" /></a>
     <hr /></td>
-    <td width="772"><table width="990" height="170" border="2">
+    <td width="772"><table width="990" height="170">
       <tr>
         <td width="900" class="right">
         	<a href="main.jsp"> Home </a> | 
@@ -48,9 +48,9 @@
     <hr /></td>
   </tr>
   <tr>
-    <td><table border="10">
+    <td><table >
       <tr>
-        <td height="184"><table border="2">
+        <td height="184"><table >
           <tr>
           	<form name="see" action="SeeAll" method="post">
             	<td class="normal">PRODUCTS <input type="submit" name="seeall" id="button_sea" value="see all"/>	
@@ -85,10 +85,10 @@
         </table></td>
       </tr> 
       <tr> 
-      	<td height="800">&nbsp;</td>
+      	<td height="620">&nbsp;</td>
       </tr>     
     </table></td>
-    <td><table  border="10" >
+    <td><table >
     <tr class="normal" >
         		<td height="30" width="450">ALL PRODUCTS</td>
       
@@ -108,7 +108,7 @@
       		</tr>
              <tr>
             <td height="261">
-            <table width="450" height="200" border = "2" class="center1"> 
+            <table width="450" height="200"  class="center1"> 
             	<% if(session.getAttribute("name")==null) {%>
            			<form id="normal" name="frm1" method="post" action="notloggedin.jsp">
             	<%} else {%>
@@ -164,7 +164,7 @@
                         }
                         else{ %>
                         	 <td height="261">
-            <table width="450" height="200" border = "2" class="center1"> 
+            <table width="450" height="200"  class="center1"> 
             <% if(session.getAttribute("name")==null) {%>
            			<form id="normal" name="frm1" method="post" action="notloggedin.jsp">
             <%} else {%>
@@ -218,7 +218,7 @@
                 }
                 if (count == 0) {
             %>
-            <table  border="2" align="left">
+            <table   align="left">
             <tr>
                 <td><b>No Record Found..</b></td>
             </tr>

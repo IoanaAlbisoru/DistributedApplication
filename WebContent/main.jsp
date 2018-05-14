@@ -35,11 +35,11 @@
 		}
 %>
 
-<table width="993" height="330" border="2">
+<table width="993" height="330" >
   <tr>
     <td width="205" height="170"><a href="main.jsp"><img src="images/head.jpg" width="251" height="170" alt="Logo" /></a></td>
     <hr />
-    <td width="772"><table width="990" height="170" border="2">
+    <td width="772"><table width="990" height="170" >
       <tr>
         <td width="900" class="right">
         	<a href="main.jsp"> Home </a> | 
@@ -70,9 +70,9 @@
     <hr /></td>
   </tr>
   <tr>
-    <td><table border="10">
+    <td><table >
       <tr>
-        <td height="184"><table border="2">
+        <td height="184"><table>
           <tr>
           	<form name="see" action="SeeAll" method="post">
             	<td class="normal">PRODUCTS <input type="submit" name="seeall" id="button_sea" value="see all"/>	
